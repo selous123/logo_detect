@@ -6,6 +6,11 @@ function [] = showSIFTKeys(image_path)
 %%
 %code:
 img = im2single(imread(image_path));
+
+if numel(size(img))>2
+    img = rgb2gray(img);
+end
+
 F = vl_sift(img);
 %with shape[4,feature_nums]
 %[x,y,scale,orientation]
