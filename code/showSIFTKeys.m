@@ -1,17 +1,13 @@
-function [] = showSIFTKeys(image_path)
+function [] = showSIFTKeys(img)
 %%
 %comment:
 %显示图像的sift特征
 
 %%
 %code:
-img = im2single(imread(image_path));
 
-if numel(size(img))>2
-    img = rgb2gray(img);
-end
 
-F = vl_sift(img);
+F = vl_sift(img,'edgethresh', 100);
 %with shape[4,feature_nums]
 %[x,y,scale,orientation]
 % Draw image with keypoints
@@ -23,7 +19,7 @@ imagesc(img);
 hold on;
 
 F_size = size(F);
-feature_num = F_size(2);
+feature_num = F_size(2)
 for i = 1:feature_num
     TransformLine(F(:,i));
     TransformLineWithArrow(F(:,i), 0.85, 0.1, 1.0, 0.0);
