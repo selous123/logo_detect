@@ -1,4 +1,4 @@
-function [H_best,num_matches] = SIFT_match(img1,img2)
+function [H_best,match_info,num_matches] = SIFT_match(img1,img2)
 isshow=0;
 edge_thresh = 100;
 %图像1和图像2的sift特征匹配
@@ -35,7 +35,7 @@ edge_thresh = 100;
 
 [match,scores] = vl_ubcmatch(D1,D2,1.2);
 numMatches = size(match,2);
-
+size(match)
 
 X1 = F1(1:2,match(1,:)) ; 
 X1(3,:) = 1 ;
@@ -71,7 +71,8 @@ match = match(:,ok);
 % 
 num_matches = size(match,2);
 
-
+match_info.X1 = F1(1:2,match(1,:));
+match_info.X2 = F2(1:2,match(2,:));
 
 %%show
 % Create a new image showing the two images side by side.
