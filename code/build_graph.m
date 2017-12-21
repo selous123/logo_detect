@@ -26,6 +26,8 @@ for i =1:num_nodes
         %graph.H{i,j} 是 graph.x{1,i} 与 graph.y{1,j}的homograph矩阵
         %graph.match{i,j}.x1是graph.x{1,i}的特征点,
         %graph.match{i,j}.x2是graph.y{1,j}的特征点.
+        %graph.match{i,j}.D1是graph.x{1,i}的描述子
+        %graph.match{i,j}.D2是graph.y{1,j}的描述子
         %num_matches是特征点个数
         [graph.H{i,j},graph.match{i,j},num_matches] = SIFT_match(graph.x{1,i},graph.y{1,j});
         if num_matches>20

@@ -73,6 +73,8 @@ num_matches = size(match,2);
 
 match_info.X1 = F1(1:2,match(1,:));
 match_info.X2 = F2(1:2,match(2,:));
+match_info.D1 = D1(:,match(1,:));
+match_info.D2 = D2(:,match(2,:));
 
 %%show
 % Create a new image showing the two images side by side.
