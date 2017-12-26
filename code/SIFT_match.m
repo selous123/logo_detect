@@ -7,6 +7,7 @@ edge_thresh = 100;
 %showSIFTKeys(img_path2);
 
 %F with shape [4,feature_num]
+%[X;Y;S;TH], where X,Y is the (fractional) center of the frame, S is the scale and TH is the orientation (in radians)
 %D with shape [128,feature_num]
 [F1,D1] = vl_sift(img1,'edgethresh', edge_thresh);
 [F2,D2] = vl_sift(img2,'edgethresh', edge_thresh);
@@ -35,7 +36,6 @@ edge_thresh = 100;
 
 [match,scores] = vl_ubcmatch(D1,D2,1.2);
 numMatches = size(match,2);
-size(match)
 
 X1 = F1(1:2,match(1,:)) ; 
 X1(3,:) = 1 ;

@@ -22,7 +22,11 @@ graph.h_bool = zeros(num_nodes,num_nodes);
 graph.H = cell(num_nodes,num_nodes);
 graph.match = cell(num_nodes,num_nodes);
 for i =1:num_nodes
-    for j =i+1:num_nodes
+    for j =1:num_nodes
+        %如果,直接跳过
+        if i==j
+            continue;
+        end
         %graph.H{i,j} 是 graph.x{1,i} 与 graph.y{1,j}的homograph矩阵
         %graph.match{i,j}.x1是graph.x{1,i}的特征点,
         %graph.match{i,j}.x2是graph.y{1,j}的特征点.
@@ -32,11 +36,9 @@ for i =1:num_nodes
         [graph.H{i,j},graph.match{i,j},num_matches] = SIFT_match(graph.x{1,i},graph.y{1,j});
         if num_matches>20
             graph.h_bool(i,j) = 1;
-            graph.h_bool(j,i) = 1;
         else
             graph.H{i,j} = [];
         end
-        graph.H{j,i} = graph.H{i,j};
     end
 end
 

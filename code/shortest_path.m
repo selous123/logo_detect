@@ -21,6 +21,4 @@ while(central_indexes)
     end
 end
 
-for i = 1:num_nodes
-    path{1,i}
-end
+%h_bool = [0,0,1,0,0,0, 0,0,0,1,1,0, 1,0,0,1,0,1, 0,1,1,0,0,0, 0,1,0,0,0,0, 0,0,1,0,0,0]
