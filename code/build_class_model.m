@@ -1,9 +1,10 @@
-function [x,D] = build_class_model(h_bool,H,central_index)
+function [x,D] = build_class_model(h_bool,H,match,central_index)
 %%
 %args:
 %   h_bool:节点之间是否存在连接
 %   H     :节点之间连接的矩阵
 %%
+num_nodes = size(h_bool,2);
 path = shortest_path(h_bool,central_index);
 %部分其他的节点,在中心图像上的映射特征点
 %shape = [2,num_features] 
@@ -32,21 +33,18 @@ for i = 1:num_nodes
 %         path{1,3}
 %         path{1,i}(1)
 %         graph.match{3,1}
-        x1 = graph.match{i,path{1,i}(1)}.X1;
+        x1 = match{i,path{1,i}(1)}.X1;
         x1(3,:) = 1;
         
         %graph.H{i,central_index}
-        x2 = graph.H{i,central_index}*x1;
+        x2 = H{i,central_index}*x1;
         x2 = x2./repmat(x2(3,:),3,1);
         x2 = x2(1:2,:);
         %所有的特征点
         %size(x2)
         x = [x,x2];
         %找出所有描述子
-        D = [D,graph.match{i,path{1,i}(1)}.D2];  
+        D = [D,match{i,path{1,i}(1)}.D1];  
     end
 end
 toc
-
-
-
