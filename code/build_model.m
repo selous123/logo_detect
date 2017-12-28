@@ -1,5 +1,5 @@
 function [model] = build_model()
-
+%run('/home/lrh/software/matlab_package/vlfeat-0.9.20/toolbox/vl_setup')
 %%%build graph
 tic
 graph = build_graph();

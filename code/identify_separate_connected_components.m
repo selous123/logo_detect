@@ -61,11 +61,12 @@ if index~=0
         end
     end
     model.second_model.nodes = second_model_nodes;
+    %如果只有一个节点
+    if size(model.second_model.nodes,2)==1
+        model.second_model_exist = 0;
+    end
 else
     model.second_model_exist = 0;
 end;
 
-%如果只有一个节点
-if size(model.second_model.nodes,2)==1
-    model.second_model_exist = 0;
-end
+

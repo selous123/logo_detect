@@ -1,5 +1,5 @@
 function [H_best,match_info,num_matches] = SIFT_match(img1,img2)
-isshow=1;
+isshow=0;
 edge_thresh = 100;
 %图像1和图像2的sift特征匹配
 
