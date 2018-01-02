@@ -1,5 +1,10 @@
 function [] = test(model,img1)
-
+%%
+%测试代码
+%path = '/mnt/hgfs/ubuntu14/dataset/FlickrLogos-v2/classes/jpg/ad/144503924.jpg'
+%img1 = rgb2gray(im2single(imread(path)))
+%test(model,img1);
+%%
 isshow=1;
 edge_thresh = 100;
 %图像1和图像2的sift特征匹配

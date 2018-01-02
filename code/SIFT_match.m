@@ -1,5 +1,5 @@
 function [H_best,match_info,num_matches] = SIFT_match(img1,img2)
-isshow=0;
+isshow=1;
 edge_thresh = 100;
 %图像1和图像2的sift特征匹配
 
@@ -58,7 +58,7 @@ for t = 1:2000
   X2_ = H{t} * X1 ;
   du = X2_(1,:)./X2_(3,:) - X2(1,:)./X2(3,:) ;
   dv = X2_(2,:)./X2_(3,:) - X2(2,:)./X2(3,:) ;
-  ok{t} = (du.*du + dv.*dv) <36 ;
+  ok{t} = (du.*du + dv.*dv) < 36 ;
   score(t) = sum(ok{t}) ;
 end
 
