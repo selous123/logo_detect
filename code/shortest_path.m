@@ -13,7 +13,7 @@ while(central_indexes)
             %路径已经找到
             continue;
         else
-            if h_bool(central_index,i)==1
+            if h_bool(i,central_index)==1
                 path{1,i} = [path{1,central_index},i];
                 central_indexes = [central_indexes,i];
             end

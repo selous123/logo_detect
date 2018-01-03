@@ -44,7 +44,7 @@ X2(3,:) = 1 ;
 
 
 %DLT,计算homograph转化矩阵
-for t = 1:2000
+for t = 1:3000
   % estimate homograpyh
   subset = vl_colsubset(1:numMatches, 4) ;
   A = [] ;

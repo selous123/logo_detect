@@ -20,7 +20,8 @@ function [graph] = build_graph()
 %%
 %读取图片,储存在graph.x中
 %每一张图表示一个节点
-root_path = '/mnt/hgfs/ubuntu14/dataset/FlickrLogos-v2/classes/jpg/';
+%root_path = '/mnt/hgfs/ubuntu14/dataset/FlickrLogos-v2/classes/jpg/';
+root_path = './train';
 classfy = 'ad';
 images = dir(fullfile(root_path,classfy));
 
