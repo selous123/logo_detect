@@ -96,4 +96,15 @@ if isshow==1 && num_matches>20
     line([F1(1,match(1,:));F2(1,match(2,:))+cols1], ...
           [F1(2,match(1,:));F2(2,match(2,:))]) ;
     hold off;
+    
+    ismatch = input('上面的图像是否匹配(0表示不匹配)：');
+    %如果人判断的是不匹配，则显示匹配失败。
+    if ismatch==0
+        num_matches = 0;
+    end
 end
+
+
+
+
+

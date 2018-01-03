@@ -1,4 +1,4 @@
-function [model] = build_model()
+function [model] = build_model(bn)
 %%
 %model的属性:
 %   data         :数据,指的是图像的数据
@@ -20,7 +20,11 @@ function [model] = build_model()
 %run('/home/lrh/software/matlab_package/vlfeat-0.9.20/toolbox/vl_setup')
 %%%build graph
 tic
-graph = build_graph();
+graph = build_graph(bn);
+%？？
+%？？
+%？？重要
+%手动设置不匹配
 toc 
 [~,central_index] = max(sum(graph.h_bool,1)'+sum(graph.h_bool,2));
 model = identify_separate_connected_components(graph.h_bool,graph.x,central_index);

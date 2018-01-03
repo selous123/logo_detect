@@ -1,4 +1,4 @@
-function [graph] = build_graph()
+function [graph] = build_graph(bn)
 %%
 %run('/home/lrh/software/matlab_package/vlfeat-0.9.20/toolbox/vl_setup')
 feedback_bool = 1;
@@ -25,7 +25,7 @@ feedback_bool = 1;
 %每一张图表示一个节点
 %root_path = '/mnt/hgfs/ubuntu14/dataset/FlickrLogos-v2/classes/jpg/';
 root_path = '../code/train';
-classfy = 'ad';
+classfy = bn;
 images = dir(fullfile(root_path,classfy));
 
 images = images(3:size(images,1));
